@@ -1,41 +1,541 @@
 <!doctype html>
-<html>
+<html lang="de">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PatOrg Insight – Projektarbeit</title>
+
+    <!-- Reveal.js -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/simple.css"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css"
     />
+
+    <!-- Highlight.js (Syntax Highlighting) -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css"
     />
+
+    <style>
+      /* Standard: alles linksbündig */
+      .reveal .slides section {
+        text-align: left;
+      }
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4 {
+        text-align: left;
+      }
+
+      /* Zentrierte Folien */
+      .reveal .slides section.centered,
+      .reveal .slides section.centered h1,
+      .reveal .slides section.centered h2,
+      .reveal .slides section.centered h3 {
+        text-align: center;
+      }
+
+      /* Bilder */
+      .reveal section img {
+        border: 0;
+        background: none;
+        box-shadow: none;
+      }
+      .reveal section img.small {
+        height: 200px;
+        width: 200px;
+      }
+
+      /* Code Blöcke */
+      .reveal pre {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      .reveal pre code {
+        max-height: none;
+        padding: 1em;
+      }
+
+      /* Tabellen */
+      .reveal table {
+        width: 100%;
+        font-size: 0.85em;
+      }
+      .reveal table th {
+        background: #f0f0f0;
+      }
+      .reveal table td,
+      .reveal table th {
+        padding: 0.4em 0.6em;
+        border: 1px solid #ddd;
+      }
+    </style>
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <h1>PatOrg Insight</h1>
+        <!-- ===================== TITELFOLIE ===================== -->
+        <section data-background-color="white" class="centered">
+          <h1>PatOrg: Insight</h1>
           <h2>Softwarelösung zum Sammeln und Auswerten von Daten</h2>
+          <img
+            src="https://docs.philipps.io/uploads/cd3e3e55-1c17-434b-9871-7e1389807c5a.svg"
+            alt="Logo"
+            width="100"
+          />
+          <br /><br />
+          <p>Eine Präsentation von Jan Philipps</p>
         </section>
 
-        <!-- Vertical slides mit section in section -->
+        <!-- ===================== INHALT ===================== -->
         <section>
-          <section>Folie 1</section>
-          <section>Folie 2</section>
+          <section>
+            <h3>Inhalt</h3>
+          </section>
+          <section>
+            <ol>
+              <li>Vorstellung</li>
+              <li>Analyse</li>
+              <li>Entwurf</li>
+              <li>Implementierung</li>
+              <li>Fazit</li>
+            </ol>
+          </section>
+        </section>
+
+        <!-- ===================== VORSTELLUNG ===================== -->
+        <section>
+          <section>
+            <h3>Brügmann Software GmbH</h3>
+            <ol>
+              <li>1984 gegründet</li>
+              <li>~60 Mitarbeiter</li>
+              <li>Software für gewerbliche Schutzrechte</li>
+              <li>PatOrg als Hauptprodukt</li>
+              <li>~300 Kunden</li>
+            </ol>
+            <img
+              src="https://docs.philipps.io/uploads/a9753860-979b-4603-b0ab-915c8115cba6.png"
+            />
+          </section>
+
+          <section>
+            <h3>PatOrg</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">
+                <strong>Patentverwaltung</strong>ssoftware
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                <strong>Rechnungsverwaltung</strong>ssoftware
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                <strong>Fristenverwaltung</strong>ssoftware
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                <strong>Dokumentenverwaltung</strong>ssoftware
+              </li>
+              <li class="fragment fade-in-then-semi-out">
+                <strong>Personenverwaltung</strong>ssoftware
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Wie funktioniert PatOrg?</h3>
+            <ul>
+              <li>
+                Besteht aus PatOrg Server, Richclient, Smartclient, Webclient
+              </li>
+              <li>Server läuft meistens lokal bei Kunden</li>
+              <li>Oracle Datenbank</li>
+              <li>Der Richclient spricht direkt mit der Datenbank</li>
+              <li>Andere Clients mit dem Server</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ===================== ANALYSE ===================== -->
+        <section>
+          <section>
+            <h3>Analyse</h3>
+          </section>
+
+          <section>
+            <h3>Das Problem</h3>
+            <ol>
+              <li class="fragment">Keine zentrale Fehlersammlung</li>
+              <li class="fragment">Keine Nutzungsstatistiken</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Bedeutet</h3>
+            <ul>
+              <li>Wer bestimmte Funktionen verwendet</li>
+              <li>Welche Funktionen nicht verwendet werden</li>
+              <li>Zählungsmetriken, wie Anzahl der Akten, Dokumente usw.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ===================== PROJEKTVORSTELLUNG ===================== -->
+        <section>
+          <h3>Projektvorstellung</h3>
+          <ol>
+            <li>PatOrg Insight</li>
+            <li>Zentraler Service</li>
+            <li>Richclient/PatOrg Server senden Metriken an PatOrg Insight</li>
+            <li>PatOrg Insight speichert &amp; wertet Daten aus</li>
+          </ol>
+        </section>
+
+        <!-- ===================== SUPPORT VORTEILE ===================== -->
+        <section>
+          <section>
+            <h3>Support Vorteile</h3>
+            <ul>
+              <li>Berater können Fehlermeldungen von Kunden nachvollziehen</li>
+              <li>Entwickler können Fehler durch Stacktraces ermitteln</li>
+              <li>Weniger Hin- und Her mit Kunden</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ===================== ENTWURF ===================== -->
+        <section>
+          <section>
+            <h3>Entwurf: Technologieauswahl</h3>
+            <h4>Was ist zu beachten?</h4>
+            <ol>
+              <li class="fragment">Große Datenmengen</li>
+              <li class="fragment">Effizienz</li>
+              <li class="fragment">Wartbarkeit</li>
+            </ol>
+          </section>
+
+          <section>
+            <ul>
+              <li>Datenbank: <strong>ClickHouse</strong></li>
+            </ul>
+          </section>
+
+          <section style="font-size: 0.7em">
+            <h3>Datenbank: Warum ClickHouse?</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriterium</th>
+                  <th>ClickHouse</th>
+                  <th>PostgreSQL + TimescaleDB</th>
+                  <th>InfluxDB</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Schreibdurchsatz</td>
+                  <td>✅</td>
+                  <td>⚠️</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Abfragegeschwindigkeit</td>
+                  <td>✅</td>
+                  <td>⚠️</td>
+                  <td>⚠️</td>
+                </tr>
+                <tr>
+                  <td>SQL-Unterstützung</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                  <td>❌</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+          </section>
+
+          <section>
+            <ul>
+              <li>Datenbank: <strong>ClickHouse</strong></li>
+              <li>Backend: <strong>Bun + Fastify</strong></li>
+            </ul>
+          </section>
+
+          <section style="font-size: 0.7em">
+            <h3>Backend: Warum Bun + Fastify?</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriterium</th>
+                  <th>Bun + Fastify</th>
+                  <th>Node.js + Express</th>
+                  <th>Deno + Hono</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TypeScript nativ</td>
+                  <td>✅</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Geschwindigkeit</td>
+                  <td>✅</td>
+                  <td>⚠️</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>npm-Kompatibilität</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                  <td>⚠️</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+          </section>
+
+          <section>
+            <ul>
+              <li>Datenbank: <strong>ClickHouse</strong></li>
+              <li>Backend: <strong>Bun + Fastify</strong></li>
+              <li>Frontend: <strong>React + TanStack Router</strong></li>
+            </ul>
+          </section>
+
+          <!-- Architektur-Diagramm -->
+          <section
+            data-background-color="white"
+            class="centered fullscreen-diagram"
+            style="font-size: 0.1rem"
+          >
+            <div class="mermaid">
+            flowchart TD
+              A[Richclient] -->|X-Hash Header| D("REST-API Bun + Fastify")
+              B["PatOrg Server Eventbus"] -->|X-Hash Header| D
+              D -->|"Validierung & Pufferung"| E[(ClickHouse)]
+              D -->|Aggregierte Abfragen| F[React Dashboard]
+            </div>
+          </section>
+
+          <!-- Authentifizierung -->
+          <section>
+            <h3>Authentifizierung</h3>
+          </section>
+
+          <section>
+            <h3>Ingest</h3>
+            <ul>
+              <li>Authentifizierung über Lizenz-Hash Header</li>
+              <li>Vergleich mit Lizenz-Hash aus lokaler Oracle Datenbank</li>
+              <li>
+                Hash-Cache im RAM → O(1) Validierung, alle 15 Minuten
+                aktualisiert
+              </li>
+            </ul>
+          </section>
+
+          <section class="centered">
+            <div class="mermaid">
+            flowchart TD
+                A["RichClient / PatOrg Server"] --> |"Daten mit X-Hash"| B(PatOrg Insight)
+                B --> C{Hash-Cache Vergleich}
+                C -->|Kunde gefunden| D[Daten mit Kunden-Id speichern]
+                C -->|Kunden nicht gefunden| E[Daten verwerfen]
+            </div>
+          </section>
+
+          <!-- Dashboard Auth -->
+          <section>
+            <h3>Dashboard</h3>
+            <ul>
+              <li>Kein eigenes Benutzersystem</li>
+              <li>JWT über bestehende PatOrg Instanz (Web API)</li>
+              <li>Alle Mitarbeitenden haben bereits ein Konto</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- ===================== IMPLEMENTIERUNG ===================== -->
+        <section>
+          <section>
+            <h3>Implementierung</h3>
+          </section>
+
+          <!-- Herausforderung Datenverlust -->
+          <section>
+            <h3>Herausforderung: Datenverlust vermeiden</h3>
+            <p>
+              Problem: Direktes Schreiben in ClickHouse pro Request zu riskant
+            </p>
+            <div class="fragment">
+              <p>
+                Lösung: In-Memory Puffer mit <strong>atomarem Tausch</strong>
+              </p>
+              <ol>
+                <li>Eingehende Events → Puffer</li>
+                <li>Alle 2 Sekunden: Puffer atomar tauschen</li>
+                <li>Insert in ClickHouse</li>
+                <li>Bei Fehler: Daten zurück in Puffer</li>
+              </ol>
+            </div>
+            <aside class="notes">
+              Wir wollen keinen Datenverlust. Kein Einfluss direkt auf
+              PatOrg-Betrieb. Kunde soll nicht merken, dass etwas schiefläuft
+              bei Ausfall.
+            </aside>
+          </section>
+
+          <!-- Datenbankmodell -->
+          <section
+            data-background-color="white"
+            class="centered fullscreen-diagram"
+          >
+            <div class="mermaid">
+              erDiagram otel_metrics { DateTime timestamp string name string
+              version string release string customer_id string service string
+              metric_type map attributes }
+            </div>
+          </section>
+
+          <!-- DDL Code -->
+          <section style="font-size: 1em">
+            <pre><code class="language-sql" data-line-numbers="2|3|4|5|6|7|8|9|10|12|13|14">
+CREATE TABLE IF NOT EXISTS insight.otel_metrics
+    (
+    timestamp   DateTime64(3),
+    name        LowCardinality(String),
+    version     LowCardinality(String),
+    release     LowCardinality(String),
+    customer_id LowCardinality(String),
+    service     LowCardinality(String),
+    metric_type LowCardinality(String),
+    attributes  Map(String, String)
+    )
+ENGINE = MergeTree
+PARTITION BY toDate(timestamp)
+ORDER BY (customer_id, name, timestamp);
+    </code></pre>
+          </section>
+
+          <!-- Dashboard Screenshot -->
+          <section>
+            <h4>Das Dashboard</h4>
+            <img
+              src="https://docs.philipps.io/uploads/2c9e9e0b-6257-4861-a0f3-84aa46d2f16e.png"
+            />
+            <aside class="notes">
+              - Kundenliste mit Suche - Filterbar nach Zeitraum &amp; Service -
+              Events, Fehler, Metriken, Logs
+            </aside>
+          </section>
+          <section>
+          <img
+            src="images/screenshot_analytik_uebersicht.png"
+          />
+          </section>
+        </section>
+
+        <!-- ===================== FAZIT ===================== -->
+        <section>
+          <section>
+            <h3>Fazit</h3>
+          </section>
+
+          <section style="font-size: 0.75em">
+            <h3>Soll-/Ist-Vergleich</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Priorität</th>
+                  <th>Anforderung</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Muss</td>
+                  <td>Telemetrie erfassen &amp; speichern</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Muss</td>
+                  <td>Dashboard: Fehler, Nutzung, Metriken</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Muss</td>
+                  <td>Kein Einfluss auf PatOrg-Betrieb</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Soll</td>
+                  <td>Clientseitiges Puffern</td>
+                  <td>✅</td>
+                </tr>
+                <tr>
+                  <td>Wunsch</td>
+                  <td>CSV-Export</td>
+                  <td>❌</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h3>Lessons Learned</h3>
+            <ol>
+              <li>
+                ClickHouse: <code>PREWHERE</code> statt <code>WHERE</code> →
+                messbar schneller
+              </li>
+              <li>Puffer-Ansatz erst während Implementierung entschieden</li>
+              <li>
+                Shared Zod-Schema zwischen API und Frontend → weniger Fehler
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Ausblick</h3>
+            <ul>
+              <li>Versionsmigrations-Übersicht</li>
+              <li>Integration in weitere Brügmann-Produkte</li>
+              <li>Kundenansicht im WebClient</li>
+            </ul>
+          </section>
+
+          <section class="centered">
+            <h2>Vielen Dank</h2>
+            <p>Fragen?</p>
+          </section>
         </section>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@11.12.3/plugin/mermaid/mermaid.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
     <script>
+      // Reveal initialisieren
       Reveal.initialize({
-        plugins: [RevealHighlight, RevealNotes],
+        hash: true,
+        transition: 'slide',
+        center: false,
+        slideNumber: true,
+        plugins: [RevealHighlight, RevealNotes, RevealMermaid],
       })
     </script>
   </body>
