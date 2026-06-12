@@ -94,7 +94,7 @@
       <!-- ===================== TITELFOLIE ===================== -->
       <section data-background-color="white" class="centered">
         <h1>PatOrg: Insight</h1>
-        <h2>Softwarelösung zum Sammeln und Auswerten von Daten</h2>
+        <h2 style="font-size:3.5rem;">Softwarelösung zum Sammeln und Auswerten von Daten</h2>
         <img src="https://docs.philipps.io/uploads/cd3e3e55-1c17-434b-9871-7e1389807c5a.svg" alt="Logo" width="100" />
         <br /><br />
         <p>Eine Präsentation von Jan Philipps</p>
@@ -102,18 +102,14 @@
 
       <!-- ===================== INHALT ===================== -->
       <section>
-        <section>
-          <h3>Inhalt</h3>
-        </section>
-        <section>
-          <ol>
-            <li>Vorstellung</li>
-            <li>Analyse</li>
-            <li>Entwurf</li>
-            <li>Implementierung</li>
-            <li>Fazit</li>
-          </ol>
-        </section>
+        <h3>Inhalt</h3>
+        <ol class="fragment">
+          <li>Vorstellung</li>
+          <li>Analyse</li>
+          <li>Entwurf</li>
+          <li>Implementierung</li>
+          <li>Fazit</li>
+        </ol>
       </section>
 
       <!-- ===================== VORSTELLUNG ===================== -->
@@ -144,7 +140,7 @@
 
         <section>
           <h3>PatOrg</h3>
-          <ul>
+          <ul class="fragment">
             <li class="fragment fade-in-then-semi-out">
               <strong>Patentverwaltung</strong>ssoftware
             </li>
@@ -160,19 +156,32 @@
             <li class="fragment fade-in-then-semi-out">
               <strong>Personenverwaltung</strong>ssoftware
             </li>
+            <li class="fragment fade-in-then-semi-out">
+              <strong>ERP</strong>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Kunden</h3>
+
+          <ul>
+            <li class="fragment fade-in-then-semi-out">Kanzleien</li>
+            <li class="fragment fade-in-then-semi-out">Unternehmen</li>
+            <li class="fragment fade-in-then-semi-out">Forschungsinstitutionen</li>
           </ul>
         </section>
 
         <section>
           <h3>Wie funktioniert PatOrg?</h3>
           <ul>
-            <li>
+            <li class="fragment">
               Besteht aus PatOrg Server, Richclient, Smartclient, Webclient
             </li>
-            <li>Server läuft meistens lokal bei Kunden</li>
-            <li>Oracle Datenbank</li>
-            <li>Der Richclient spricht direkt mit der Datenbank</li>
-            <li>Andere Clients mit dem Server</li>
+            <li class="fragment">Server läuft meistens lokal bei Kunden</li>
+            <li class="fragment">Oracle Datenbank</li>
+            <li class="fragment">Der Richclient spricht direkt mit der Datenbank</li>
+            <li class="fragment">Andere Clients mit dem Server</li>
           </ul>
         </section>
       </section>
@@ -191,7 +200,7 @@
           </ol>
 
           <aside class="notes">
-            Hier labern!!
+            <h1>Nächste Folie erst erklären!</h1>
           </aside>
         </section>
 
@@ -211,7 +220,7 @@
         <ol>
           <li>PatOrg Insight</li>
           <li>Zentraler Service</li>
-          <li>Richclient/PatOrg Server senden Metrikedata-background-image n an PatOrg Insight</li>
+          <li>Richclient/PatOrg Server senden Metriken an PatOrg Insight</li>
           <li>PatOrg Insight speichert &amp; wertet Daten aus</li>
         </ol>
       </section>
@@ -235,7 +244,7 @@
           <h4>Was ist zu beachten?</h4>
           <ol>
             <li class="fragment">Große Datenmengen</li>
-            <li class="fragment">Effizienz</li>
+            <li class="fragment">Hochverfügbarkeit & Zuverlässigkeit</li>
             <li class="fragment">Wartbarkeit</li>
           </ol>
         </section>
@@ -281,15 +290,34 @@
                 <td>✅</td>
                 <td>❌</td>
               </tr>
+              <tr>
+                <td>Kompression (spaltenorientiert)</td>
+                <td>✅</td>
+                <td>⚠️</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Lizenzkosten</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>⚠️</td>
+              </tr>
             </tbody>
           </table>
-          <br />
+          <p style="font-size: 0.85em; margin-top: 0.6em; color: #555;">
+            ✅ Gut &nbsp;|&nbsp; ⚠️ Eingeschränkt &nbsp;|&nbsp; ❌ Nicht erfüllt
+          </p>
         </section>
 
         <section>
-          <ul>
+          <ul style="margin-bottom: 5rem;">
             <li>Datenbank: <strong>ClickHouse</strong></li>
             <li>Backend: <strong>Bun + Fastify</strong></li>
+          </ul>
+          <ul class="fragment">
+            Bun ist eine schnelle JavaScript-Runtime mit nativem TypeScript-Support. Kein Build-Schritt nötig. Fastify
+            ist ein leichtgewichtiges Web-Framework
+            mit eingebauter JSON-Schema-Validierung pro Route.
           </ul>
         </section>
 
@@ -323,16 +351,34 @@
                 <td>✅</td>
                 <td>⚠️</td>
               </tr>
+              <tr>
+                <td>Eingebaute Validierung</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>⚠️</td>
+              </tr>
+              <tr>
+                <td>Ökosystem-Reife</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>⚠️</td>
+              </tr>
             </tbody>
           </table>
-          <br />
+          <p style="font-size: 0.85em; margin-top: 0.6em; color: #555;">
+            ✅ Gut &nbsp;|&nbsp; ⚠️ Eingeschränkt &nbsp;|&nbsp; ❌ Nicht erfüllt
+          </p>
         </section>
 
         <section>
-          <ul>
+          <ul style="margin-bottom: 5rem;">
             <li>Datenbank: <strong>ClickHouse</strong></li>
             <li>Backend: <strong>Bun + Fastify</strong></li>
             <li>Frontend: <strong>React + TanStack Router</strong></li>
+          </ul>
+
+          <ul class="fragment">React ist eine komponentenbasierte JavaScript-Bibliothek für Benutzeroberflächen;
+            TanStack Router ergänzt sie um typsicheres, dateibasiertes Routing innerhalb der Single-Page-Application.
           </ul>
         </section>
 
@@ -430,7 +476,7 @@
         </section>
 
         <!-- DDL Code -->
-        <section style="font-size: 1em" class="v-center">
+        <section style="font-size: 1.5em" class="v-center">
           <pre><code class="language-sql" data-line-numbers="2|3|4|5|6|7|8|9|10|11|13|14|15">
 CREATE TABLE IF NOT EXISTS insight.otel_metrics
     (
@@ -459,8 +505,56 @@ ORDER BY (customer_id, name, timestamp);
           </aside>
         </section>
         <section>
-          <img src="images/screenshot_analytik_uebersicht.png" />
+          <img src="images/screenshot_analytik_uebersicht_3.png" />
+
+          <aside class="notes">
+            <h1>SQL: Folie 13</h1>
+          </aside>
         </section>
+      </section>
+
+      <section>
+        <h4>PatOrg Server Datensammlung</h4>
+
+        <pre>
+          <code class="language-vbnet">
+Private Shared Sub InsightCall(payload As String)
+   Using client As New WebClient()
+      client.Headers.Add("X-Hash", _systemHash)
+      client.Headers.Add("Content-Type", "application/json")
+
+      Try
+         client.UploadString(INSIGHT_URL, payload)
+      Catch ex As Exception
+         ' Fehler merken - PatOrg läuft normal weiter
+         _errors.Add(ex.Message)
+      End Try
+   End Using
+End Sub
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h4>PatOrg Insight Datenauswertung</h4>
+
+        <pre style="font-size: 0.6em">
+          <code class="language-sql">
+SELECT metric_type, COUNT(*) AS count
+FROM insight.otel_metrics
+PREWHERE
+  timestamp >= fromUnixTimestamp64Milli({from:UInt64})
+  AND timestamp <= fromUnixTimestamp64Milli({to:UInt64})
+WHERE 
+  customer_id = {customer_id:String}
+  AND service = {service:String}
+GROUP BY metric_type
+          </code>
+        </pre>
+
+        <aside class="notes">
+          <h1>Dashboard: Folie 11/6</h1>
+        </aside>
       </section>
 
       <!-- ===================== FAZIT ===================== -->
@@ -518,7 +612,7 @@ ORDER BY (customer_id, name, timestamp);
             </li>
             <li>Puffer-Ansatz erst während Implementierung entschieden</li>
             <li>
-              Shared Zod-Schema zwischen API und Frontend → weniger Fehler
+              Shared Schema zwischen API und Frontend → weniger Fehler
             </li>
           </ol>
         </section>
