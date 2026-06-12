@@ -188,8 +188,8 @@
 
       <!-- ===================== ANALYSE ===================== -->
       <section>
-        <section>
-          <h3>Analyse</h3>
+        <section class="v-center">
+          <h2>Analyse</h2>
         </section>
 
         <section>
@@ -437,8 +437,8 @@
 
       <!-- ===================== IMPLEMENTIERUNG ===================== -->
       <section>
-        <section>
-          <h3>Implementierung</h3>
+        <section class="v-center">
+          <h2>Implementierung</h2>
         </section>
 
         <!-- Herausforderung Datenverlust -->
@@ -465,18 +465,8 @@
           </aside>
         </section>
 
-        <!-- Datenbankmodell -->
-        <section data-background-color="white" class="centered fullscreen-diagram">
-          <h3>Datenbankmodell</h3>
-          <div class="mermaid">
-            erDiagram otel_metrics { DateTime timestamp string name string
-            version string release string customer_id string service string
-            metric_type map attributes }
-          </div>
-        </section>
-
         <!-- DDL Code -->
-        <section style="font-size: 1.5em" class="v-center">
+        <section style="font-size: 1.5em; font-weight: bold;" class="v-center">
           <pre><code class="language-sql" data-line-numbers="2|3|4|5|6|7|8|9|10|11|13|14|15">
 CREATE TABLE IF NOT EXISTS insight.otel_metrics
     (
@@ -513,12 +503,11 @@ ORDER BY (customer_id, name, timestamp);
         </section>
       </section>
 
-      <section>
-        <h4>PatOrg Server Datensammlung</h4>
+      <section class="v-center">
+        <h4>PatOrg Server Datenübertragung</h4>
 
-        <pre>
-          <code class="language-vbnet">
-Private Shared Sub InsightCall(payload As String)
+        <pre >
+          <code class="language-vb"  style="font-size: 1.3em; font-weight: bold;" data-line-numbers>Private Shared Sub InsightCall(payload As String)
    Using client As New WebClient()
       client.Headers.Add("X-Hash", _systemHash)
       client.Headers.Add("Content-Type", "application/json")
@@ -535,12 +524,11 @@ End Sub
         </pre>
       </section>
 
-      <section>
+      <section class="v-center">
         <h4>PatOrg Insight Datenauswertung</h4>
 
-        <pre style="font-size: 0.6em">
-          <code class="language-sql">
-SELECT metric_type, COUNT(*) AS count
+        <pre>
+          <code  class="language-sql"  style="font-size: 1.3em; font-weight: bold;" data-line-numbers>SELECT metric_type, COUNT(*) AS count
 FROM insight.otel_metrics
 PREWHERE
   timestamp >= fromUnixTimestamp64Milli({from:UInt64})
@@ -601,20 +589,6 @@ GROUP BY metric_type
               </tr>
             </tbody>
           </table>
-        </section>
-
-        <section>
-          <h3>Lessons Learned</h3>
-          <ol>
-            <li>
-              ClickHouse: <code>PREWHERE</code> statt <code>WHERE</code> →
-              messbar schneller
-            </li>
-            <li>Puffer-Ansatz erst während Implementierung entschieden</li>
-            <li>
-              Shared Schema zwischen API und Frontend → weniger Fehler
-            </li>
-          </ol>
         </section>
 
         <section>
