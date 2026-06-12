@@ -85,6 +85,14 @@
       max-width: none !important;
       max-height: 600px;
     }
+
+    .fragment.bold.current-fragment {
+      font-weight: bold;
+    }
+
+    .fragment.bold {
+      font-weight: normal;
+    }
   </style>
 </head>
 
@@ -103,12 +111,12 @@
       <!-- ===================== INHALT ===================== -->
       <section>
         <h3>Inhalt</h3>
-        <ol class="fragment">
-          <li>Vorstellung</li>
-          <li>Analyse</li>
-          <li>Entwurf</li>
-          <li>Implementierung</li>
-          <li>Fazit</li>
+        <ol>
+          <li class="fragment custom bold">Vorstellung</li>
+          <li class="fragment custom bold">Analyse</li>
+          <li class="fragment custom bold">Entwurf</li>
+          <li class="fragment custom bold">Implementierung</li>
+          <li class="fragment custom bold">Fazit</li>
         </ol>
       </section>
 
@@ -117,9 +125,9 @@
         <section>
           <h3>Zu mir</h3>
           <ul>
-            <li>Jan Philipps</li>
-            <li>19 Jahre</li>
-            <li>Auszubildener bei Brügmann Software</li>
+            <li class="fragment custom bold">Jan Philipps</li>
+            <li class="fragment custom bold">19 Jahre</li>
+            <li class="fragment custom bold">Auszubildener bei Brügmann Software</li>
           </ul>
         </section>
         <section data-background-image="images/bruegmann.jpg">
@@ -128,11 +136,11 @@
 
             <h3>Brügmann Software GmbH</h3>
             <ol>
-              <li>1984 gegründet</li>
-              <li>~60 Mitarbeiter</li>
-              <li>Software für gewerbliche Schutzrechte</li>
-              <li>PatOrg als Hauptprodukt</li>
-              <li>~300 Kunden</li>
+              <li class="fragment custom bold">1984 gegründet</li>
+              <li class="fragment custom bold">~60 Mitarbeiter</li>
+              <li class="fragment custom bold">Software für gewerbliche Schutzrechte</li>
+              <li class="fragment custom bold">PatOrg als Hauptprodukt</li>
+              <li class="fragment custom bold">~300 Kunden</li>
             </ol>
             <img src="https://docs.philipps.io/uploads/a9753860-979b-4603-b0ab-915c8115cba6.png" />
           </div>
@@ -140,7 +148,7 @@
 
         <section>
           <h3>PatOrg</h3>
-          <ul class="fragment">
+          <ul>
             <li class="fragment fade-in-then-semi-out">
               <strong>Patentverwaltung</strong>ssoftware
             </li>
@@ -157,9 +165,13 @@
               <strong>Personenverwaltung</strong>ssoftware
             </li>
             <li class="fragment fade-in-then-semi-out">
-              <strong>ERP</strong>
+              <strong>ERP System</strong>
             </li>
           </ul>
+
+          <aside class="notes">
+              <h1>ERP: Enterprise resource planning</h1>
+          </aside>
         </section>
 
         <section>
@@ -218,10 +230,10 @@
       <section>
         <h3>Projektvorstellung</h3>
         <ol>
-          <li>PatOrg Insight</li>
-          <li>Zentraler Service</li>
-          <li>Richclient/PatOrg Server senden Metriken an PatOrg Insight</li>
-          <li>PatOrg Insight speichert &amp; wertet Daten aus</li>
+          <li class="fragment">PatOrg Insight</li>
+          <li class="fragment">Zentraler Service</li>
+          <li class="fragment">Richclient/PatOrg Server senden Metriken an PatOrg Insight</li>
+          <li class="fragment">PatOrg Insight speichert &amp; wertet Daten aus</li>
         </ol>
       </section>
 
@@ -230,9 +242,9 @@
         <section>
           <h3>Support Vorteile</h3>
           <ul>
-            <li>Berater können Fehlermeldungen von Kunden nachvollziehen</li>
-            <li>Entwickler können Fehler durch Stacktraces ermitteln</li>
-            <li>Weniger Hin- und Her mit Kunden</li>
+            <li class="fragment">Berater können Fehlermeldungen von Kunden nachvollziehen</li>
+            <li class="fragment">Entwickler können Fehler durch Stacktraces ermitteln</li>
+            <li class="fragment">Weniger Hin- und Her mit Kunden</li>
           </ul>
         </section>
       </section>
@@ -467,8 +479,7 @@
 
         <!-- DDL Code -->
         <section style="font-size: 1.5em; font-weight: bold;" class="v-center">
-          <pre><code class="language-sql" data-line-numbers="2|3|4|5|6|7|8|9|10|11|13|14|15">
-CREATE TABLE IF NOT EXISTS insight.otel_metrics
+          <pre><code class="language-sql" data-line-numbers="3|4|5|6|7|8|9|10|12|13|14">CREATE TABLE IF NOT EXISTS insight.otel_metrics
     (
     timestamp   DateTime64(3),
     name        LowCardinality(String),
@@ -549,46 +560,12 @@ GROUP BY metric_type
       <section>
         <section>
           <h3>Fazit</h3>
-        </section>
 
-        <section style="font-size: 0.75em">
-          <h3>Soll-/Ist-Vergleich</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Priorität</th>
-                <th>Anforderung</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Muss</td>
-                <td>Telemetrie erfassen &amp; speichern</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Muss</td>
-                <td>Dashboard: Fehler, Nutzung, Metriken</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Muss</td>
-                <td>Kein Einfluss auf PatOrg-Betrieb</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Soll</td>
-                <td>Clientseitiges Puffern</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Wunsch</td>
-                <td>CSV-Export</td>
-                <td>❌</td>
-              </tr>
-            </tbody>
-          </table>
+          <ul>
+            <li class="fragment">Alle Anforderungen umgesetzt</li>
+            <li class="fragment">PatOrg Insight ist bereits in Betrieb</li>
+            <li class="fragment">Gutes Feedback von Beratern & Geschäftsführung</li>
+          </ul>
         </section>
 
         <section>
